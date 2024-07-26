@@ -1,1 +1,38 @@
-<p>todohome works!</p>
+<div class="container">
+
+    <h1>To-Do Application</h1>
+
+    <hr>
+<form (ngSubmit)="onSubmit(taskForm)"  #taskForm="ngForm">
+    <div class="mb-3">
+      <label for="task">Task</label>
+      <input type="text" class="form-control" id="task" placeholder="Enter task" ngModel name="task">
+      <div id="errorMessage" class="form-text text-danger">Required field</div>
+    </div>
+    <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <hr>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Task</th>
+        <th scope="col">Complete</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td><input id="myCheckbox" type="checkbox"></td>
+        <td><button class="btn btn-sm">Delete</button></td>
+      </tr>
+      <tr>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
