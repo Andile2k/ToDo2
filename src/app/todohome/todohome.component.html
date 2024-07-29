@@ -24,11 +24,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngFor="let t of taskArray; index as i">
         <th scope="row">1</th>
-        <td>Mark</td>
+        <td>{{t.taskName}}</td>
         <td><input id="myCheckbox" type="checkbox"></td>
-        <td><button class="btn btn-sm">Delete</button></td>
+        <td><button class="btn btn-sm" (click)="onDelete(i)">Delete</button></td>
       </tr>
       <tr>
 
