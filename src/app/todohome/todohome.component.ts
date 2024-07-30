@@ -20,6 +20,7 @@ export class TodohomeComponent implements OnInit {
         taskName: form.controls['task'].value,
         isCompleted: false
       })
+      form.reset();
     }
 
     onDelete(index: number) {
@@ -27,6 +28,12 @@ export class TodohomeComponent implements OnInit {
 
       this.taskArray.splice(index, 1);
 
+    }
+
+    onCheck(index: number) {
+      console.log(this.taskArray);
+      // Grabbing this value amd asigning it to the same element
+      this.taskArray[index].isCompleted = !this.taskArray[index].isCompleted;
     }
   
 

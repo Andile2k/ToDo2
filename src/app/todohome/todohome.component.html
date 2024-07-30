@@ -6,10 +6,12 @@
 <form (ngSubmit)="onSubmit(taskForm)"  #taskForm="ngForm">
     <div class="mb-3">
       <label for="task">Task</label>
-      <input type="text" class="form-control" id="task" placeholder="Enter task" ngModel name="task">
-      <div id="errorMessage" class="form-text text-danger">Required field</div>
+      <input type="text" class="form-control" id="task" placeholder="Enter task" ngModel name="task" required>
+      <!--To show the error message for the text box-->
+      <small *ngIf="taskForm.invalid && taskForm.dirty" id="errorMessage" class="form-text text-danger">Required field</small>
     </div>
-    <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
+    <!--Makes the submit button invisible when there is no text on the text box-->
+    <button [disabled]="taskForm.invalid" id="submitButton" type="submit" class="btn btn-primary">Submit</button>
   </form>
 
   <hr>
@@ -27,7 +29,7 @@
       <tr *ngFor="let t of taskArray; index as i">
         <th scope="row">1</th>
         <td>{{t.taskName}}</td>
-        <td><input id="myCheckbox" type="checkbox"></td>
+        <td><input (change)="onCheck(i)"  id="myCheckbox" type="checkbox"></td>
         <td><button class="btn btn-sm" (click)="onDelete(i)">Delete</button></td>
       </tr>
       <tr>
